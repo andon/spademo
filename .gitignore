@@ -1,0 +1,24 @@
+# maven generated
+target/
+release.properties
+
+# Eclipse (source: https://github.com/github/gitignore/blob/master/Global/Eclipse.gitignore)
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.settings/
+.loadpath
+.project
+.classpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
