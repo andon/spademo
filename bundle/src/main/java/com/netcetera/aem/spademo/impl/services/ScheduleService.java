@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import com.netcetera.aem.spademo.impl.domain.ConferenceDay;
 import com.netcetera.aem.spademo.impl.domain.Slot;
 import com.netcetera.aem.spademo.impl.domain.Sort;
+import com.netcetera.aem.spademo.impl.domain.SortDirection;
+import com.netcetera.aem.spademo.impl.domain.SortingInfo;
 
 @Service
 public class ScheduleService {
@@ -21,20 +23,24 @@ public class ScheduleService {
 	private static final Set<Slot> SECOND_DAY_SLOTS;
 	private static final Set<Slot> THIRD_DAY_SLOTS;
 	
-	public ConferenceDay getConferenceDayFor(int day, Sort sort) {
+	public ConferenceDay getConferenceDayFor(int day, SortingInfo sortingInfo) {
+	  
+	  Sort sort = sortingInfo.getSort();
+	  SortDirection sortDirection = sortingInfo.getSortDirection();
+	  
 		switch (day) {
 		case 1:
 			List<Slot> orderedFirstDaySlots = new ArrayList<Slot>(FIRST_DAY_SLOTS);
-			Collections.sort(orderedFirstDaySlots, sort.getComparator());
-			return new ConferenceDay(new LocalDate(22, 9, 2014), orderedFirstDaySlots);
+			Collections.sort(orderedFirstDaySlots, sort.getComparator(sortDirection));
+			return new ConferenceDay(new LocalDate(22, 9, 2014), orderedFirstDaySlots, sortingInfo, null);
 		case 2:
 			List<Slot> orderedSecondDaySlots = new ArrayList<Slot>(SECOND_DAY_SLOTS);
-			Collections.sort(orderedSecondDaySlots, sort.getComparator());
-			return new ConferenceDay(new LocalDate(23, 9, 2014), orderedSecondDaySlots);
+			Collections.sort(orderedSecondDaySlots, sort.getComparator(sortDirection));
+			return new ConferenceDay(new LocalDate(23, 9, 2014), orderedSecondDaySlots, sortingInfo, null);
 		case 3:
 			List<Slot> orderedThirdDaySlots = new ArrayList<Slot>(THIRD_DAY_SLOTS);
-			Collections.sort(orderedThirdDaySlots, sort.getComparator());
-			return new ConferenceDay(new LocalDate(24, 9, 2014), orderedThirdDaySlots);
+			Collections.sort(orderedThirdDaySlots, sort.getComparator(sortDirection));
+			return new ConferenceDay(new LocalDate(24, 9, 2014), orderedThirdDaySlots, sortingInfo, null);
 		case 4:
 			throw new ConferenceException("Day 4 still in preparation");
 		default:

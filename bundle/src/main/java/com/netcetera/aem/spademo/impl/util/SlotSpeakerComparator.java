@@ -1,13 +1,23 @@
 package com.netcetera.aem.spademo.impl.util;
 
-import java.util.Comparator;
-
 import com.netcetera.aem.spademo.impl.domain.Slot;
+import com.netcetera.aem.spademo.impl.domain.SortDirection;
 
-public class SlotSpeakerComparator implements Comparator<Slot> {
+public class SlotSpeakerComparator extends AbstractSlotComparator {
 
-	public int compare(Slot first, Slot second) {
-		return first.getSpeaker().compareTo(second.getSpeaker());
+	public SlotSpeakerComparator(SortDirection sortDirection) {
+    super(sortDirection);
+  }
+
+  public int compare(Slot first, Slot second) {
+    switch (getSortDirection()) {
+      case ASC:
+        return first.getSpeaker().compareTo(second.getSpeaker());
+      case DESC:
+        return second.getSpeaker().compareTo(first.getSpeaker());
+      default:
+        throw new IllegalStateException("Unknown sorting direction");
+    }
 	}
 
 }

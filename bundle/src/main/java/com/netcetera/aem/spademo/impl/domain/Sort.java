@@ -11,14 +11,14 @@ public enum Sort {
 	TOPIC,
 	SPEAKER;
 	
-	public Comparator<Slot> getComparator() {
+	public Comparator<Slot> getComparator(SortDirection direction) {
 		switch (this) {
 		case START_TIME:
-			return new SlotStartTimeComparator();
+			return new SlotStartTimeComparator(direction);
 		case TOPIC:
-			return new SlotTopicComparator();
+			return new SlotTopicComparator(direction);
 		case SPEAKER:
-			return new SlotSpeakerComparator();
+			return new SlotSpeakerComparator(direction);
 		default:
 			throw new IllegalStateException("No comparator for " + this);
 		}
