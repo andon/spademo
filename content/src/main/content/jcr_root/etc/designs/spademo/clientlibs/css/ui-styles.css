@@ -61,3 +61,62 @@ html,body {
 .intro {
     overflow: hidden;
 }
+.sortable > span {
+  min-height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.icon-sort {
+  background-image: url('../../images/icons/glyphicons_403_sorting.png');
+}
+.icon-sort-up {
+  background-image: url('../../images/icons/glyphicons_408_sort-by-attributes.png');
+}
+.icon-sort-down {
+  background-image: url('../../images/icons/glyphicons_409_sort-by-attributes-alt.png');
+}
+
+
+.sortable.none .icon-sort {
+    display: inline-block;
+}
+.sortable.none .icon-sort-up {
+    display: none;
+}
+.sortable.none .icon-sort-down {
+  display: none;
+}
+
+.sortable.down .icon-sort {
+    display: none
+ }
+.sortable.down .icon-sort-up {
+  display: inline-block;
+}
+.sortable.down .icon-sort-down {
+    display: none;
+}
+
+.sortable.up .icon-sort {
+  display: none;
+}
+.sortable.up .icon-sort-up {
+    display: none;
+}
+.sortable.up .icon-sort-down {
+   display: inline-block;
+}
+
+.pagingNumeric {
+  display: block;
+  float: left;
+}
+.pagingNumeric {
+  display: block;
+  float: left;
+}
+.pagingNextPrev {
+  display: block;
+  float: right;
+}

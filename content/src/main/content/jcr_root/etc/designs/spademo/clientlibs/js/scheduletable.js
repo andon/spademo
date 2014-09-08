@@ -1,4 +1,4 @@
-aemspa.scheduletable = function($){
+aemspa.scheduletable = function($, pager){
   var params;
   
   function init(params){
@@ -9,20 +9,20 @@ aemspa.scheduletable = function($){
   function getPage(pageNumber) {
     //$.ajax();
     var data = {
-        entries: {
+        schedule: {
           talks: [
-             {
-               time: '10:00 - 10:30',
-               title: 'Dynamic Components using Single-Page-Application Concepts',
-               speakers: 'Andon Sikavica, Bojana Popovska'
-             },
-             {
-               time: '10:30 - 10:45',
-               title: 'Break',
-               speakers: ''
-             }
-          ],
-          total: 20
+                  {
+                    time: '10:00 - 10:30',
+                    title: 'Dynamic Components using Single-Page-Application Concepts',
+                    speakers: 'Andon Sikavica, Bojana Popovska'
+                  },
+                  {
+                    time: '10:30 - 10:45',
+                    title: 'Break',
+                    speakers: ''
+                  }
+           ],
+           date: '24.09.2014'
         },
         pagingInfo: {
           pageNumbers: [1, 2, 3],
@@ -36,13 +36,15 @@ aemspa.scheduletable = function($){
         }
     };
     updateTable(data);
+    pager.updatePager(data.pagingInfo);
   }
   
-  function updateTable(data){
-    $("#adaptToTalks tbody").loadTemplate($("#scheduleTemplate"), data.entries.talks);
+  function updateTable(data) {
+    $('.conferenceDate').text(data.schedule.date);
+    $("#adaptToTalks tbody").loadTemplate($("#scheduleTemplate"), data.schedule.talks);
   }
   
   return{
     init:init
   }
-}(jQuery);
+}(jQuery, aemspa.pager);
