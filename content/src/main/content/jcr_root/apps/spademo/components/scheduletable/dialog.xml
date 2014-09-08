@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root 
+  title="Schedule Table Component"
+  xtype="panel"
+  helpPath="en/cq/current/wcm/default_components.html#Title"
+  jcr:primaryType="cq:Dialog"
+  xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+  xmlns:jcr="http://www.jcp.org/jcr/1.0"
+  xmlns:cq="http://www.day.com/jcr/cq/1.0">
+  <items jcr:primaryType="cq:WidgetCollection">
+    <title 
+      xtype="textfield"
+      jcr:primaryType="cq:Widget"
+      name="./jcr:title"
+      fieldLabel="Title"
+      fieldDescription="Leave empty to use the page title."/>
+  </items>
+</jcr:root>

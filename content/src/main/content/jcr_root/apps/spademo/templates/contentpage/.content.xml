@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+  jcr:primaryType="cq:Template"
+  jcr:title="AEMSPA Demo Content Page"
+  jcr:description="Template for a content page for the AEMSPA demo"
+  allowedPaths="[content/aemspa.*]"
+  ranking="{Long}50">
+  <jcr:content
+      jcr:primaryType="cq:PageContent"
+      sling:resourceType="spademo/components/templates/contentpage"
+      cq:designPath="/etc/designs/spademo"/>
+  <thumbnail.png/>
+</jcr:root>

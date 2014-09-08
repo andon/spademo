@@ -1,0 +1,8 @@
+#base=js/libs
+jquery-1.11.1.js
+jqueryTemplate.js
+bootstrap.js
+
+#base=js
+init.js
+scheduletable.js
