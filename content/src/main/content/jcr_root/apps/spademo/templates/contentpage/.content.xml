@@ -3,7 +3,7 @@
   jcr:primaryType="cq:Template"
   jcr:title="AEMSPA Demo Content Page"
   jcr:description="Template for a content page for the AEMSPA demo"
-  allowedPaths="[content/aemspa.*]"
+  allowedPaths="[/content/aemspademo.*]"
   ranking="{Long}50">
   <jcr:content
       jcr:primaryType="cq:PageContent"

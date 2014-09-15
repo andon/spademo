@@ -6,8 +6,19 @@
         cq:lastModified="{Date}2014-09-03T19:59:43.455+02:00"
         cq:lastModifiedBy="admin"
         jcr:primaryType="nt:unstructured"
-        jcr:title="Test"
-        sling:resourceType="wcm/core/components/designer" />
+        jcr:title="AEMSPA Clientlibs"
+        sling:resourceType="wcm/core/components/designer">
+        <contentpage jcr:primaryType="nt:unstructured">
+          <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys"
+            jcr:lastModifiedBy="admin"
+            jcr:lastModified="{Date}2014-09-15T20:58:06.873+02:00"
+            components="group:AEMSPA Demo">
+            <section jcr:primaryType="nt:unstructured"/>
+          </par>
+        </contentpage>
+    </jcr:content>
     <images/>
     <clientlibs/>
 </jcr:root>
