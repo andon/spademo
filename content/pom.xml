@@ -62,15 +62,15 @@
                         </embedded>
                         <embedded2>
                         	<!-- GSON -->
-							<groupId>com.google.code.gson</groupId>
-							<artifactId>gson</artifactId>
-							<target>/apps/spademo/install</target>
-                        </embedded2>
-                        <embedded3>
-                        	<!-- Joda Time -->
-							<groupId>joda-time</groupId>
-							<artifactId>joda-time</artifactId>
-							<target>/apps/spademo/install</target>
+            							<groupId>com.google.code.gson</groupId>
+            							<artifactId>gson</artifactId>
+            							<target>/apps/spademo/install</target>
+                       </embedded2>
+                       <embedded3>
+                       <!-- Joda Time -->
+            							<groupId>joda-time</groupId>
+            							<artifactId>joda-time</artifactId>
+            							<target>/apps/spademo/install</target>
                         </embedded3>
                     </embeddeds>
                     <targetURL>http://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>

@@ -70,10 +70,10 @@ html,body {
 .icon-sort {
   background-image: url('../../images/icons/glyphicons_403_sorting.png');
 }
-.icon-sort-up {
+.icon-sort-down {
   background-image: url('../../images/icons/glyphicons_408_sort-by-attributes.png');
 }
-.icon-sort-down {
+.icon-sort-up {
   background-image: url('../../images/icons/glyphicons_409_sort-by-attributes-alt.png');
 }
 
@@ -88,23 +88,23 @@ html,body {
   display: none;
 }
 
-.sortable.down .icon-sort {
+.sortable.desc .icon-sort {
     display: none
  }
-.sortable.down .icon-sort-up {
+.sortable.desc .icon-sort-up {
   display: inline-block;
 }
-.sortable.down .icon-sort-down {
+.sortable.desc .icon-sort-down {
     display: none;
 }
 
-.sortable.up .icon-sort {
+.sortable.asc .icon-sort {
   display: none;
 }
-.sortable.up .icon-sort-up {
+.sortable.asc .icon-sort-up {
     display: none;
 }
-.sortable.up .icon-sort-down {
+.sortable.asc .icon-sort-down {
    display: inline-block;
 }
 

@@ -11,6 +11,7 @@ import org.joda.time.LocalTime;
 import org.springframework.stereotype.Service;
 
 import com.netcetera.aem.spademo.impl.domain.ConferenceDay;
+import com.netcetera.aem.spademo.impl.domain.PagingInfo;
 import com.netcetera.aem.spademo.impl.domain.Slot;
 import com.netcetera.aem.spademo.impl.domain.Sort;
 import com.netcetera.aem.spademo.impl.domain.SortDirection;
@@ -40,19 +41,20 @@ public class ScheduleService {
     Sort sort = sortingInfo.getSort();
     SortDirection sortDirection = sortingInfo.getSortDirection();
 
+    int[] numbers = new int[]{1, 2, 3, 4};
     switch (day) {
       case 1:
         List<Slot> orderedFirstDaySlots = new ArrayList<Slot>(FIRST_DAY_SLOTS);
         Collections.sort(orderedFirstDaySlots, sort.getComparator(sortDirection));
-        return new ConferenceDay(new LocalDate(22, 9, 2014), orderedFirstDaySlots, sortingInfo, null);
+        return new ConferenceDay(new LocalDate(2014, 9, 22), orderedFirstDaySlots, sortingInfo, new PagingInfo(numbers, 1, true, false));
       case 2:
         List<Slot> orderedSecondDaySlots = new ArrayList<Slot>(SECOND_DAY_SLOTS);
         Collections.sort(orderedSecondDaySlots, sort.getComparator(sortDirection));
-        return new ConferenceDay(new LocalDate(23, 9, 2014), orderedSecondDaySlots, sortingInfo, null);
+        return new ConferenceDay(new LocalDate(2014, 9, 23), orderedSecondDaySlots, sortingInfo, new PagingInfo(numbers, 2, true, true));
       case 3:
         List<Slot> orderedThirdDaySlots = new ArrayList<Slot>(THIRD_DAY_SLOTS);
         Collections.sort(orderedThirdDaySlots, sort.getComparator(sortDirection));
-        return new ConferenceDay(new LocalDate(24, 9, 2014), orderedThirdDaySlots, sortingInfo, null);
+        return new ConferenceDay(new LocalDate(2014, 9, 24), orderedThirdDaySlots, sortingInfo, new PagingInfo(numbers, 3, true, true));
       case 4:
         throw new ConferenceException("Day 4 still in preparation");
       default:

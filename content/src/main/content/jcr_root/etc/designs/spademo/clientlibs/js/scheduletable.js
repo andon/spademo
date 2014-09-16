@@ -1,42 +1,44 @@
-aemspa.scheduletable = function($, pager){
-  var params;
+aemspa.scheduletable = function($, pager, sort){
+  var urlParams;
   
   function init(params){
-    this.params = params;
-    getPage(0);
+    urlParams = params;
+    sort.addClickHandler(sortResults);
+    getPage(1);
   }
   
   function getPage(pageNumber) {
-    //$.ajax();
-    var data = {
-        schedule: {
-          talks: [
-                  {
-                    time: '10:00 - 10:30',
-                    title: 'Dynamic Components using Single-Page-Application Concepts',
-                    speakers: 'Andon Sikavica, Bojana Popovska'
-                  },
-                  {
-                    time: '10:30 - 10:45',
-                    title: 'Break',
-                    speakers: ''
-                  }
-           ],
-           date: '24.09.2014'
-        },
-        pagingInfo: {
-          pageNumbers: [1, 2, 3],
-          currentPage: 1,
-          hasNext: true,
-          hasPrev: false
-        },
-        sortingInfo: {
-          criteria: 'date',
-          order: 'asc'
-        }
-    };
-    updateTable(data);
-    pager.updatePager(data.pagingInfo);
+    $.ajax({
+      url: urlParams.getPageContentUrl,
+      data: {
+        _charset_: 'UTF-8',
+        pageNumber: pageNumber
+      },
+      type: 'POST',
+      dataType: 'json',
+      success: function(data){
+        updateTable(data);
+        pager.updatePager(data.pagingInfo);
+      }
+    });
+  }
+  
+  function sortResults(sortCriteria, sortDirection) {
+    $.ajax({
+      url: urlParams.sortDataUrl,
+      data: {
+        _charset_: 'UTF-8',
+        sort: sortCriteria,
+        sortDirection: sortDirection
+      },
+      type: 'POST',
+      dataType: 'json',
+      success: function(data){
+        updateTable(data);
+        pager.updatePager(data.pagingInfo);
+        sort.updateSortingIcons(data.sortingInfo);
+      }
+    });
   }
   
   function updateTable(data) {
@@ -47,4 +49,4 @@ aemspa.scheduletable = function($, pager){
   return{
     init:init
   }
-}(jQuery, aemspa.pager);
+}(jQuery, aemspa.pager, aemspa.sort);

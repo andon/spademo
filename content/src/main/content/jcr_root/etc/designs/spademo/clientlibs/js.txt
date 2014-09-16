@@ -6,4 +6,5 @@ bootstrap.js
 #base=js
 init.js
 pager.js
+sort.js
 scheduletable.js

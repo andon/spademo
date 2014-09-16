@@ -23,14 +23,16 @@ public class PagingInfoGsonSerializer implements JsonSerializer<PagingInfo> {
     JsonObject pagingInfoJson = new JsonObject();
     pagingInfoJson.addProperty("currentPage", pagingInfo.getCurrentPageNumber());
     pagingInfoJson.addProperty("hasNext", pagingInfo.hasNext());
-    pagingInfoJson.addProperty("hasPrev", pagingInfo.hasNext());
+    pagingInfoJson.addProperty("hasPrev", pagingInfo.hasPrev());
 
     JsonArray pageNumbers = new JsonArray();
     for (int pageNumber : pagingInfo.getNumbres()) {
       pageNumbers.add(new JsonPrimitive(pageNumber));
     }
+    
+    pagingInfoJson.add("pageNumbers", pageNumbers);
 
-    return null;
+    return pagingInfoJson;
   }
 
 }

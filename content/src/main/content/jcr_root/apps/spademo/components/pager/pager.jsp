@@ -1,6 +1,9 @@
 <%@include file="/libs/foundation/global.jsp"%>
 <script type="text/html" id="pagingTemplate">
-   <li><a href="#" data-content=""></a></li>
+   <li data-template-bind='
+      [{"attribute": "class", "value": ""}]'>
+      <a href="#" data-content=""></a>
+   </li>
 </script>
 <div class="pagingNumeric">
   <ul class="pagination">
@@ -8,7 +11,7 @@
 </div>
 <div class="pagingNextPrev">
   <ul class="pager">
-    <li><a href="#">Previous</a></li>
-    <li><a href="#">Next</a></li>
+    <li class="previousPage"><a href="#">Previous</a></li>
+    <li class="nextPage"><a href="#">Next</a></li>
   </ul>
 </div>

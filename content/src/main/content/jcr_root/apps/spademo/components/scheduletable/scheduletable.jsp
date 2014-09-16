@@ -16,7 +16,7 @@
   <thead>
     <tr>
       <th>
-         <span class="sortable down">
+         <span class="sortable asc" data-sort="start_time" data-sortdir="asc">
             <c:out value="${m.headerTime}" />
             <span class="icon-sort"></span>
             <span class="icon-sort-up"></span>
@@ -24,7 +24,7 @@
          </span>
       </th>
       <th>
-         <span class="sortable none">
+         <span class="sortable none" data-sort="topic" data-sortdir="none">
              <c:out value="${m.headerTalk}" />
              <span class="icon-sort"></span>
              <span class="icon-sort-up"></span>
@@ -32,7 +32,7 @@
          </span>
       </th>
       <th>
-         <span class="sortable none">
+         <span class="sortable none" data-sort="speakers" data-sortdir="none">
            <c:out value="${m.headerSpeakers}" />
            <span class="icon-sort"></span>
            <span class="icon-sort-up"></span>
@@ -48,7 +48,7 @@
 </div>
 <script type="text/javascript">
     aemspa.scheduletable.init({
-      getPageContentUrl: '',
-      sortByUrl: '',
+      getPageContentUrl: 'http://localhost:4502/bin/mvc.do/scheduletable/getresult',
+      sortDataUrl: 'http://localhost:4502/bin/mvc.do/scheduletable/sortresult'
     });
 </script>
