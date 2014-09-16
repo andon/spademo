@@ -1,7 +1,16 @@
-Dynamic Components using SPA Concepts DEMO
+Dynamic Components using SPA Concepts
 ========
 
-This a content package project generated using the multimodule-content-package-archetype.
+This project is a demonstration of how you can build dynamic components using Single-Page-Application concepts in Adobe Experience Manager (CQ5).
+
+Setup
+-----
+
+This project uses the NEBA framework (http://neba.io/). Make sure that you have installed NEBA onto your CQ instance, before you start to play with this project.
+
+Goto http://neba.io/download.html, download the AEM package for NEBA 3.2.0 and install it with Package Manager.
+
+After this you can use the following guide to install the demo project.
 
 Building
 --------
