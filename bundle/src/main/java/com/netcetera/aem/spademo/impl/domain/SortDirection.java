@@ -1,6 +1,18 @@
 package com.netcetera.aem.spademo.impl.domain;
 
-
+/**
+ * Sort direction possibilities.
+ * 
+ * @author andon.sikavica
+ */
 public enum SortDirection {
-  ASC, DESC;
+  /**
+   * Sort ascending.
+   */
+  ASC,
+
+  /**
+   * Sort descending.
+   */
+  DESC;
 }

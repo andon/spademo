@@ -12,24 +12,27 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.netcetera.aem.spademo.impl.domain.Slot;
 
-
+/**
+ * {@link JsonSerializer} for a {@link Slot}.
+ * 
+ * @author bojana.popovska
+ */
 public class SlotSerializer implements JsonSerializer<Slot> {
 
   @Override
   public JsonElement serialize(Slot slot, Type typeOfSrc, JsonSerializationContext context) {
-  JsonObject slotJson = new JsonObject();
-    
+    JsonObject slotJson = new JsonObject();
+
     slotJson.addProperty("time", formatTime(slot.getStartTime()) + " - " + formatTime(slot.getEndTime()));
     slotJson.addProperty("title", slot.getTopic());
-    slotJson.addProperty("speakers", slot.getSpeaker());
-    
+    slotJson.addProperty("speakers", slot.getSpeakers());
+
     return slotJson;
   }
-  
-  private String formatTime(LocalTime time){
+
+  private String formatTime(LocalTime time) {
     DateTimeFormatter formatter = DateTimeFormat.forPattern("hh:mm");
     return formatter.print(time);
   }
- 
 
 }

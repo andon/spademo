@@ -8,16 +8,20 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.netcetera.aem.spademo.impl.domain.SortingInfo;
 
-
-public class SortingInfoSerializer implements JsonSerializer<SortingInfo>{
+/**
+ * {@link JsonSerializer} for a {@link SortingInfo}.
+ * 
+ * @author bojana.popovska
+ */
+public class SortingInfoSerializer implements JsonSerializer<SortingInfo> {
 
   @Override
   public JsonElement serialize(SortingInfo sortingInfo, Type typeOfSrc, JsonSerializationContext context) {
-    
+
     JsonObject sortingJson = new JsonObject();
     sortingJson.addProperty("criteria", sortingInfo.getSort().toString());
     sortingJson.addProperty("order", sortingInfo.getSortDirection().toString());
-    
+
     return sortingJson;
   }
 

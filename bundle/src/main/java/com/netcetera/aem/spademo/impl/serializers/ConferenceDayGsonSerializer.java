@@ -14,8 +14,12 @@ import com.google.gson.JsonSerializer;
 import com.netcetera.aem.spademo.impl.domain.ConferenceDay;
 import com.netcetera.aem.spademo.impl.domain.Slot;
 
-
-public class ConferenceDayGsonSerializer implements JsonSerializer<ConferenceDay>{
+/**
+ * {@link JsonSerializer} for a {@link ConferenceDay}.
+ * 
+ * @author bojana.popovska
+ */
+public class ConferenceDayGsonSerializer implements JsonSerializer<ConferenceDay> {
 
   @Override
   public JsonElement serialize(ConferenceDay conferenceDay, Type typeOfSrc, JsonSerializationContext context) {
@@ -25,13 +29,13 @@ public class ConferenceDayGsonSerializer implements JsonSerializer<ConferenceDay
     for (Slot slot : conferenceDay.getSlots()) {
       entries.add(context.serialize(slot));
     }
-    
+
     schedule.add("talks", entries);
     schedule.addProperty("date", formatDate(conferenceDay.getDate()));
     conferenceDayJson.add("schedule", schedule);
     conferenceDayJson.add("sortingInfo", context.serialize(conferenceDay.getSortingInfo()));
     conferenceDayJson.add("pagingInfo", context.serialize(conferenceDay.getPagingInfo()));
-    
+
     return conferenceDayJson;
   }
 
@@ -39,7 +43,5 @@ public class ConferenceDayGsonSerializer implements JsonSerializer<ConferenceDay
     DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.yyyy");
     return formatter.print(date);
   }
-  
-  
 
 }

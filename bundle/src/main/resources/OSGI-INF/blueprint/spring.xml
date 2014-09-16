@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:bp="http://www.osgi.org/xmlns/blueprint/v1.0.0"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:bp="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
    http://www.osgi.org/xmlns/blueprint/v1.0.0
    http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
@@ -11,27 +10,27 @@
    http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
     <context:component-scan base-package="com.netcetera.aem.spademo" />
-    
+
     <!-- Errors Interception -->
-	<bean class="com.netcetera.aem.spademo.impl.services.ErrorInterceptor" id="errorInterceptor" />
-	<bean class="org.springframework.aop.support.JdkRegexpMethodPointcut" id="controllerPointcut">
-		<property name="pattern" value=".*spademo.*Controller.*" />
-	</bean>
-	<bean class="org.springframework.aop.support.DefaultPointcutAdvisor" id="errorAdvisor">
-		<property name="advice" ref="errorInterceptor" />
-		<property name="pointcut" ref="controllerPointcut" />
-  	</bean>
-	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-		<property name="beanNames">
-			<list>
-				<value>*Controller</value>
-			</list>
-		</property>
-		<property name="interceptorNames">
-			<list>
-				<value>errorAdvisor</value>
-			</list>
-		</property>
-	</bean>
+    <bean class="com.netcetera.aem.spademo.impl.services.ErrorInterceptor" id="errorInterceptor" />
+    <bean class="org.springframework.aop.support.JdkRegexpMethodPointcut" id="controllerPointcut">
+        <property name="pattern" value=".*spademo.*Controller.*" />
+    </bean>
+    <bean class="org.springframework.aop.support.DefaultPointcutAdvisor" id="errorAdvisor">
+        <property name="advice" ref="errorInterceptor" />
+        <property name="pointcut" ref="controllerPointcut" />
+    </bean>
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Controller</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>errorAdvisor</value>
+            </list>
+        </property>
+    </bean>
 
 </beans>

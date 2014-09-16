@@ -19,33 +19,55 @@ import org.apache.sling.api.servlets.ServletResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Servlet {@link Filter} that checks the SPA-like dynamic calls.
+ * 
+ * @author andon.sikavica
+ */
 @SlingFilter(generateComponent = false, generateService = true, order = -700, scope = SlingFilterScope.REQUEST)
 @Component(immediate = true, metatype = false)
 public class PostCheckFilter implements Filter {
-    
-	@Reference
-	private ServletResolver servletResolver;
-	
-    private Logger logger = LoggerFactory.getLogger(PostCheckFilter.class);
 
-    public void init(FilterConfig filterConfig) throws ServletException {
+  @Reference
+  private ServletResolver servletResolver;
+
+  private Logger logger = LoggerFactory.getLogger(PostCheckFilter.class);
+
+  /**
+   * no-operation.
+   * 
+   * @param filterConfig {@link FilterConfig}.
+   * @throws ServletException never.
+   */
+  public void init(FilterConfig filterConfig) throws ServletException {
+  }
+
+  /**
+   * TODO: ASI.
+   * 
+   * @param request {@link ServletRequest}.
+   * @param response {@link ServletResponse}.
+   * @param chain {@link FilterChain}.
+   * @throws IOException .
+   * @throws ServletException .
+   */
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
+    SlingHttpServletRequest slingRequest = (SlingHttpServletRequest) request;
+    Servlet servlet = servletResolver.resolveServlet(slingRequest);
+    if (servlet != null && "SlingPostServlet".equals(servlet.getClass().getSimpleName())) {
+      logger.info("ASI: SlingPostServlet is handling the request");
     }
+    logger.debug("request for {}, with selector {}", slingRequest.getRequestPathInfo().getResourcePath(),
+        slingRequest.getRequestPathInfo().getSelectorString());
 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
-            ServletException {
-        SlingHttpServletRequest slingRequest = (SlingHttpServletRequest) request;
-        Servlet servlet = servletResolver.resolveServlet(slingRequest);
-        if (servlet != null && "SlingPostServlet".equals(servlet.getClass().getSimpleName())) {
-        	logger.info("ASI: SlingPostServlet is handling the request");
-        }
-        logger.debug("request for {}, with selector {}",
-                slingRequest.getRequestPathInfo().getResourcePath(),
-                slingRequest.getRequestPathInfo().getSelectorString());
+    chain.doFilter(request, response);
+  }
 
-        chain.doFilter(request, response);
-    }
-
-    public void destroy() {
-    }
+  /**
+   * no-operation.
+   */
+  public void destroy() {
+  }
 
 }

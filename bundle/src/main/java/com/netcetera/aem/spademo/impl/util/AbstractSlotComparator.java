@@ -5,19 +5,35 @@ import java.util.Comparator;
 import com.netcetera.aem.spademo.impl.domain.Slot;
 import com.netcetera.aem.spademo.impl.domain.SortDirection;
 
-
-abstract public class AbstractSlotComparator implements Comparator<Slot>{
+/**
+ * Abstract slot comparator.
+ * 
+ * @author bojana.popovska
+ */
+public abstract class AbstractSlotComparator implements Comparator<Slot> {
 
   private SortDirection sortDirection;
 
+  /**
+   * Constructor.
+   * 
+   * @param sortDirection {@link SortDirection}.
+   */
   public AbstractSlotComparator(SortDirection sortDirection) {
     this.sortDirection = sortDirection;
   }
-  
+
   public SortDirection getSortDirection() {
     return sortDirection;
   }
-  
-  abstract public int compare(Slot first, Slot second);
-  
+
+  /**
+   * Compare two {@link Slot}s.
+   * 
+   * @param first {@link Slot}.
+   * @param second {@link Slot}.
+   * @return comparison result.
+   */
+  public abstract int compare(Slot first, Slot second);
+
 }

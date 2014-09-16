@@ -4,18 +4,18 @@ import com.netcetera.aem.spademo.impl.domain.Slot;
 import com.netcetera.aem.spademo.impl.domain.SortDirection;
 
 /**
- * Slot comparator by the starting slot time field.
+ * Slot comparator by the Speakers field.
  * 
  * @author bojana.popovska
  */
-public class SlotStartTimeComparator extends AbstractSlotComparator {
+public class SlotSpeakersComparator extends AbstractSlotComparator {
 
   /**
    * Constructor.
    * 
    * @param sortDirection {@link SortDirection}.
    */
-  public SlotStartTimeComparator(SortDirection sortDirection) {
+  public SlotSpeakersComparator(SortDirection sortDirection) {
     super(sortDirection);
   }
 
@@ -30,9 +30,9 @@ public class SlotStartTimeComparator extends AbstractSlotComparator {
   public int compare(Slot first, Slot second) {
     switch (getSortDirection()) {
       case ASC:
-        return first.getStartTime().compareTo(second.getStartTime());
+        return first.getSpeakers().compareTo(second.getSpeakers());
       case DESC:
-        return second.getStartTime().compareTo(first.getStartTime());
+        return second.getSpeakers().compareTo(first.getSpeakers());
       default:
         throw new IllegalStateException("Unknown sorting direction");
     }
