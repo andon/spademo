@@ -65,12 +65,12 @@
 		<dependency>
 			<groupId>io.neba</groupId>
 			<artifactId>io.neba.neba-api</artifactId>
-			<version>3.1.0</version>
+			<version>3.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.neba</groupId>
 			<artifactId>io.neba.neba-core</artifactId>
-			<version>3.1.0</version>
+			<version>3.2.0</version>
 		</dependency>
 		
 		<!-- CQ -->

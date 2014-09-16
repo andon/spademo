@@ -1,4 +1,6 @@
 <%@include file="/libs/foundation/global.jsp"%>
+<%@taglib prefix="neba" uri="http://neba.io/1.0"%>
+<neba:defineObjects />
 <script type="text/html" id="scheduleTemplate">
   <tr>
       <td data-content="time"></td>
@@ -8,14 +10,14 @@
 </script>
 <div>
 
-<h2>Addapt To 2014 schedule</h2>
+<h2><c:out value="${m.title}" /></h2>
 <h3 class="conferenceDate"></h3>
 <table class="table table-striped" id="adaptToTalks">
   <thead>
     <tr>
       <th>
          <span class="sortable down">
-            Time
+            <c:out value="${m.headerTime}" />
             <span class="icon-sort"></span>
             <span class="icon-sort-up"></span>
             <span class="icon-sort-down"></span>
@@ -23,7 +25,7 @@
       </th>
       <th>
          <span class="sortable none">
-             Talk
+             <c:out value="${m.headerTalk}" />
              <span class="icon-sort"></span>
              <span class="icon-sort-up"></span>
              <span class="icon-sort-down"></span>
@@ -31,7 +33,7 @@
       </th>
       <th>
          <span class="sortable none">
-           Speakers
+           <c:out value="${m.headerSpeakers}" />
            <span class="icon-sort"></span>
            <span class="icon-sort-up"></span>
            <span class="icon-sort-down"></span>

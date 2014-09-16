@@ -13,6 +13,28 @@
       jcr:primaryType="cq:Widget"
       name="./jcr:title"
       fieldLabel="Title"
-      fieldDescription="Leave empty to use the page title."/>
+      allowBlank="false"
+      defaultValue="adaptTo 2014 Schedule"/>
+    <headerTime 
+      xtype="textfield"
+      jcr:primaryType="cq:Widget"
+      name="./headerTime"
+      fieldLabel="Header-Time"
+      allowBlank="false"
+      defaultValue="Time"/>
+    <headerTalk 
+      xtype="textfield"
+      jcr:primaryType="cq:Widget"
+      name="./headerTalk"
+      fieldLabel="Header-Talk"
+      allowBlank="false"
+      defaultValue="Talk"/>
+    <headerSpeakers 
+      xtype="textfield"
+      jcr:primaryType="cq:Widget"
+      name="./headerSpeakers"
+      fieldLabel="Header-Speakers"
+      allowBlank="false"
+      defaultValue="Speakers"/>
   </items>
 </jcr:root>
