@@ -7,10 +7,10 @@ package com.netcetera.aem.spademo.impl.domain;
  */
 public class PagingInfo {
 
-  private int[] numbres;
-  private int currentPageNumber;
-  private boolean hasNext;
-  private boolean hasPrev;
+  private final int[] numbres;
+  private final int currentPageNumber;
+  private final boolean hasNext;
+  private final boolean hasPrev;
 
   /**
    * Constructs the paging info object.

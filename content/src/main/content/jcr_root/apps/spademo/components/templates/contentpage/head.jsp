@@ -1,5 +1,7 @@
 <%@include file="/libs/foundation/global.jsp" %><%
-%><%@ page import="com.day.cq.commons.Doctype,
+%><%@ page session="false"
+           contentType="text/html; charset=utf-8"
+		   import="com.day.cq.commons.Doctype,
                    org.apache.commons.lang3.StringEscapeUtils" %><%
     String xs = Doctype.isXHTML(request) ? "/" : "";
     String favIcon = currentDesign.getPath() + "/favicon.ico";

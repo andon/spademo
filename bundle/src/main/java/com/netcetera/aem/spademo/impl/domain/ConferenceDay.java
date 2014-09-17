@@ -12,10 +12,10 @@ import org.joda.time.LocalDate;
  */
 public class ConferenceDay {
 
-  private LocalDate date;
-  private List<Slot> slots;
-  private SortingInfo sortingInfo;
-  private PagingInfo pagingInfo;
+  private final LocalDate date;
+  private final List<Slot> slots;
+  private final SortingInfo sortingInfo;
+  private final PagingInfo pagingInfo;
 
   /**
    * Constructor.
