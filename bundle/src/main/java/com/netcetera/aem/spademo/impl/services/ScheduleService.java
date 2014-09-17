@@ -46,15 +46,27 @@ public class ScheduleService {
       case 1:
         List<Slot> orderedFirstDaySlots = new ArrayList<Slot>(FIRST_DAY_SLOTS);
         Collections.sort(orderedFirstDaySlots, sort.getComparator(sortDirection));
-        return new ConferenceDay(new LocalDate(2014, 9, 22), orderedFirstDaySlots, sortingInfo, new PagingInfo(numbers, 1, true, false));
+        return new ConferenceDay(
+            new LocalDate(2014, 9, 22), 
+            orderedFirstDaySlots, 
+            sortingInfo, 
+            new PagingInfo(numbers, 1, true, false));
       case 2:
         List<Slot> orderedSecondDaySlots = new ArrayList<Slot>(SECOND_DAY_SLOTS);
         Collections.sort(orderedSecondDaySlots, sort.getComparator(sortDirection));
-        return new ConferenceDay(new LocalDate(2014, 9, 23), orderedSecondDaySlots, sortingInfo, new PagingInfo(numbers, 2, true, true));
+        return new ConferenceDay(
+            new LocalDate(2014, 9, 23), 
+            orderedSecondDaySlots, 
+            sortingInfo, 
+            new PagingInfo(numbers, 2, true, true));
       case 3:
         List<Slot> orderedThirdDaySlots = new ArrayList<Slot>(THIRD_DAY_SLOTS);
         Collections.sort(orderedThirdDaySlots, sort.getComparator(sortDirection));
-        return new ConferenceDay(new LocalDate(2014, 9, 24), orderedThirdDaySlots, sortingInfo, new PagingInfo(numbers, 3, true, true));
+        return new ConferenceDay(
+            new LocalDate(2014, 9, 24), 
+            orderedThirdDaySlots, 
+            sortingInfo, 
+            new PagingInfo(numbers, 3, true, true));
       case 4:
         throw new ConferenceException("Day 4 still in preparation");
       default:

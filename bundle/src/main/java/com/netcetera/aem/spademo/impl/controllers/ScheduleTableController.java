@@ -1,5 +1,10 @@
 package com.netcetera.aem.spademo.impl.controllers;
 
+import static com.netcetera.aem.spademo.impl.domain.Sort.START_TIME;
+import static com.netcetera.aem.spademo.impl.domain.SortDirection.ASC;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -21,8 +26,6 @@ import com.netcetera.aem.spademo.impl.serializers.SlotSerializer;
 import com.netcetera.aem.spademo.impl.serializers.SortingInfoSerializer;
 import com.netcetera.aem.spademo.impl.services.ScheduleService;
 
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-
 /**
  * Controller for the schedule table component.
  * 
@@ -35,19 +38,31 @@ public class ScheduleTableController {
   @Resource
   private ScheduleService scheduleService;
 
-  @RequestMapping(value = "/scheduletable/getresult", produces = "application/json", method = POST)
+  /**
+   * Gets the dynamic data needed for a single conference day needed for rendering the schedule table.
+   * 
+   * @param pageNumber the day of the conference.
+   * @return The resulting JSON.
+   */
+  @RequestMapping(value = "/scheduletable/getresult", produces = APPLICATION_JSON_VALUE, method = POST)
   @ResponseBody
   public String getTableResult(@RequestParam int pageNumber) {
-    ConferenceDay conferenceDay = scheduleService.getConferenceDayFor(pageNumber, new SortingInfo(Sort.START_TIME, SortDirection.ASC));
-
+    ConferenceDay conferenceDay = scheduleService.getConferenceDayFor(pageNumber, new SortingInfo(START_TIME, ASC));
     return serializeData(conferenceDay);
   }
 
-  @RequestMapping(value = "/scheduletable/sortresult", produces = "application/json", method = POST)
+  /**
+   * Gets the dynamic data needed for a single conference day, in specific sort type and direction.
+   * The data is needed to render the schedule table.
+   * 
+   * @param sort {@link Sort}.
+   * @param sortDirection {@link SortDirection}.
+   * @return The resulting JSON
+   */
+  @RequestMapping(value = "/scheduletable/sortresult", produces = APPLICATION_JSON_VALUE, method = POST)
   @ResponseBody
   public String sortResults(@RequestParam Sort sort, @RequestParam SortDirection sortDirection) {
     ConferenceDay conferenceDay = scheduleService.getConferenceDayFor(1, new SortingInfo(sort, sortDirection));
-
     return serializeData(conferenceDay);
   }
   
@@ -57,7 +72,6 @@ public class ScheduleTableController {
     gsonBuilder.registerTypeAdapter(Slot.class, new SlotSerializer());
     gsonBuilder.registerTypeAdapter(SortingInfo.class, new SortingInfoSerializer());
     gsonBuilder.registerTypeAdapter(PagingInfo.class, new PagingInfoGsonSerializer());
-    
     Gson gson = gsonBuilder.create();
     return gson.toJson(conferenceDay);
   }
