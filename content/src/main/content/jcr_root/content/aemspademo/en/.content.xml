@@ -10,4 +10,5 @@
         jcr:title="English"
         sling:resourceType="spademo/components/templates/contentpage"/>
     <schedule/>
+    <404/>
 </jcr:root>

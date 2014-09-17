@@ -8,6 +8,7 @@
   <jcr:content
       jcr:primaryType="cq:PageContent"
       sling:resourceType="spademo/components/templates/contentpage"
-      cq:designPath="/etc/designs/spademo"/>
+      cq:designPath="/etc/designs/spademo">
+  </jcr:content>
   <thumbnail.png/>
 </jcr:root>

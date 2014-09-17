@@ -15,7 +15,20 @@ aemspa.pager = function($){
     }
     
     $('.pagingNumeric .pagination .' + data.currentPage).addClass('active');
+    
+    $('.pagination li').click(function(){
+      handler($(this).attr('class'));
+    });
+    
+    $('.previousPage').click(function(){
+      handler(data.currentPage - 1);
+    });
+    
+    $('.nextPage').click(function(){
+      handler(data.currentPage + 1);
+    });
   }
+  
   
   return {
     updatePager : updatePager

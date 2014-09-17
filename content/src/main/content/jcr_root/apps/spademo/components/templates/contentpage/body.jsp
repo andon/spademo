@@ -16,6 +16,7 @@
           </p>
         </div>
       </div>
+      <cq:include resourceType="spademo/components/errormessage" path="errormessage"/>
       <cq:include resourceType="foundation/components/parsys" path="par"/>
     </div>
   </div>

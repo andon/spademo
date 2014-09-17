@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/spademo"
+        cq:lastModified="{Date}2014-09-15T20:48:56.991+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/spademo/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Page not found"
+        sling:resourceType="spademo/components/templates/contentpage">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <text
+              jcr:primaryType="nt:unstructured"
+              sling:resourceType="foundation/components/text"
+              jcr:lastModifiedBy="admin"
+              jcr:lastModified="{Date}2014-09-17T22:18:18.269+02:00"
+              textIsRich="true" text="<h1>404 - page not found</h1>"
+              jcr:createdBy="admin"
+              jcr:created="{Date}2014-09-17T22:17:49.163+02:00"/>
+        </par>
+    </jcr:content>
+</jcr:root>

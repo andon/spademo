@@ -5,6 +5,9 @@ bootstrap.js
 
 #base=js
 init.js
+utils.js
+errorMessage.js
+errorHandling.js
 pager.js
 sort.js
 scheduletable.js

@@ -18,7 +18,7 @@ aemspa.scheduletable = function($, pager, sort){
       dataType: 'json',
       success: function(data){
         updateTable(data);
-        pager.updatePager(data.pagingInfo);
+        pager.updatePager(data.pagingInfo, aemspa.scheduletable.getPage);
       }
     });
   }
@@ -35,7 +35,7 @@ aemspa.scheduletable = function($, pager, sort){
       dataType: 'json',
       success: function(data){
         updateTable(data);
-        pager.updatePager(data.pagingInfo);
+        pager.updatePager(data.pagingInfo, aemspa.scheduletable.getPage);
         sort.updateSortingIcons(data.sortingInfo);
       }
     });
@@ -47,6 +47,7 @@ aemspa.scheduletable = function($, pager, sort){
   }
   
   return{
-    init:init
+    init : init,
+    getPage : getPage
   }
 }(jQuery, aemspa.pager, aemspa.sort);
