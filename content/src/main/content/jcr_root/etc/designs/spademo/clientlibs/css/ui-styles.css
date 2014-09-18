@@ -120,3 +120,14 @@ html,body {
   display: block;
   float: right;
 }
+.errormessage {
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+  background-color: #FFD6CC;
+  padding: 15px;
+  border-radius: 7px;
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
