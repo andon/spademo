@@ -23,11 +23,12 @@ aemspa.scheduletable = function($, pager, sort){
     });
   }
   
-  function sortResults(sortCriteria, sortDirection) {
+  function sortResults(pageNumber, sortCriteria, sortDirection) {
     $.ajax({
       url: urlParams.sortDataUrl,
       data: {
         _charset_: 'UTF-8',
+        pageNumber : pageNumber,
         sort: sortCriteria,
         sortDirection: sortDirection
       },

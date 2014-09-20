@@ -1,4 +1,4 @@
-aemspa.sort = function($){
+aemspa.sort = function($, pager){
 
   function addClickHandler(handler) {
     $('.sortable').click(function(){
@@ -11,7 +11,7 @@ aemspa.sort = function($){
       
       var sortingCriteria = $(this).data('sort');
       $(this).addClass(sortingDirection);
-      handler(sortingCriteria.toUpperCase(), sortingDirection.toUpperCase()); 
+      handler(pager.getCurrentPage(), sortingCriteria.toUpperCase(), sortingDirection.toUpperCase()); 
     });
   }
   
@@ -33,4 +33,4 @@ aemspa.sort = function($){
     updateSortingIcons : updateSortingIcons
   }
   
-}(jQuery);
+}(jQuery, aemspa.pager);

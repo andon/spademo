@@ -9,6 +9,7 @@ aemspa.errorHandling = (function($, utils, errorMessage) {
   function wrapSuccessHandlerWithErrorHandler(options, originalOptions, jqXHR) {
     var originalSuccessHandler = options.success;
     options.success = function(data, textStatus, jqXHR) {
+      $('.errorMessage').css('display', 'none');
       if (responseHasError(data)) {
         if (responseHasErrorMessage(data)) {
           displayErrorMessage(data);

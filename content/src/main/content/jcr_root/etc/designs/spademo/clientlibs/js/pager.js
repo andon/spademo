@@ -29,9 +29,14 @@ aemspa.pager = function($){
     });
   }
   
+  function getCurrentPage(){
+    return $('.pagingNumeric .pagination .active a').text();
+  }
+  
   
   return {
-    updatePager : updatePager
+    updatePager : updatePager,
+    getCurrentPage : getCurrentPage
   }
   
 }(jQuery);
