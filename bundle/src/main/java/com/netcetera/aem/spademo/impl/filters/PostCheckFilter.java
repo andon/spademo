@@ -48,8 +48,8 @@ public class PostCheckFilter implements Filter {
    * @param request {@link ServletRequest}.
    * @param response {@link ServletResponse}.
    * @param chain {@link FilterChain}.
-   * @throws IOException .
-   * @throws ServletException .
+   * @throws IOException
+   * @throws ServletException
    */
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
