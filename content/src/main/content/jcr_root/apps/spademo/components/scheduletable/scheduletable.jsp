@@ -48,7 +48,7 @@
 </div>
 <script type="text/javascript">
     aemspa.scheduletable.init({
-      getPageContentUrl: 'http://localhost:4502/bin/mvc.do/scheduletable/getresult',
-      sortDataUrl: 'http://localhost:4502/bin/mvc.do/scheduletable/sortresult'
+      getPageContentUrl: '/bin/mvc.do/scheduletable/getresult',
+      sortDataUrl: '/bin/mvc.do/scheduletable/sortresult'
     });
 </script>
